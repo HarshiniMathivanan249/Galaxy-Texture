@@ -1,0 +1,500 @@
+/* =========================================================
+   Galaxy Texture - responsive production overrides
+   Keeps the Stitch visual direction while making all pages
+   stable on phones, tablets, laptops and wide desktops.
+========================================================= */
+:root {
+  --gt-navy: #16233a;
+  --gt-ink: #010d23;
+  --gt-blue: #2477ff;
+  --gt-yellow: #ffd83d;
+  --gt-red: #ff5757;
+  --gt-green: #39c76f;
+  --gt-cream: #fff9ef;
+  --gt-soft: #f3ede3;
+  --gt-header-h: 84px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { overflow-x: hidden; }
+body.menu-open { overflow: hidden; }
+[id] { scroll-margin-top: calc(var(--gt-header-h) + 18px); }
+img { max-width: 100%; }
+a, button { -webkit-tap-highlight-color: transparent; }
+button, input, select, textarea { font: inherit; }
+
+/* Local SVG icon replacement: avoids broken icon-font words such as "menu" or "call". */
+.gt-icon,
+.gt-inline-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex: 0 0 auto;
+  vertical-align: -0.125em;
+  fill: currentColor;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+.gt-site-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 100;
+  background: rgba(255, 249, 239, 0.96);
+  border-bottom: 1px solid rgba(22, 35, 58, 0.06);
+  box-shadow: 0 5px 24px rgba(22, 35, 58, 0.07);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+
+.gt-header-inner {
+  width: min(100% - 40px, 1280px);
+  height: 80px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+}
+
+.gt-header-ribbon {
+  height: 4px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.gt-header-ribbon span:nth-child(1) { background: var(--gt-yellow); }
+.gt-header-ribbon span:nth-child(2) { background: var(--gt-red); }
+.gt-header-ribbon span:nth-child(3) { background: var(--gt-blue); }
+.gt-header-ribbon span:nth-child(4) { background: var(--gt-green); }
+
+.gt-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  min-width: 0;
+  color: var(--gt-ink);
+  text-decoration: none;
+  flex: 0 1 auto;
+}
+.gt-brand img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  flex: 0 0 42px;
+}
+.gt-brand-copy {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.gt-brand-copy strong {
+  font-family: Manrope, ui-sans-serif, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.gt-brand-copy small {
+  margin-top: 5px;
+  color: #626770;
+  font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  font-size: 9px;
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.gt-desktop-nav {
+  display: none;
+  align-items: center;
+  gap: 3px;
+  padding: 4px;
+  border-radius: 999px;
+  background: #f8f1e7;
+  box-shadow: 0 1px 5px rgba(22, 35, 58, 0.05);
+  flex: 0 0 auto;
+}
+.gt-nav-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 0 15px;
+  border-radius: 999px;
+  color: #4f5259;
+  text-decoration: none;
+  font: 700 13px/1 "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: 0.015em;
+  white-space: nowrap;
+  transition: background-color .18s ease, color .18s ease, box-shadow .18s ease, transform .18s ease;
+}
+.gt-nav-link:hover,
+.gt-nav-link.is-active {
+  color: var(--gt-ink);
+  background: var(--gt-soft);
+  box-shadow: 0 3px 12px rgba(22, 35, 58, 0.08);
+}
+
+.gt-header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  flex: 0 0 auto;
+}
+.gt-header-phone,
+.gt-header-quote,
+.gt-header-icon {
+  text-decoration: none;
+}
+.gt-header-phone {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 0 14px;
+  border-radius: 999px;
+  color: var(--gt-navy);
+  background: #f8f1e7;
+  font: 700 13px/1 "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  white-space: nowrap;
+}
+.gt-header-phone .gt-inline-icon { font-size: 16px; color: var(--gt-blue); }
+.gt-header-quote {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 20px;
+  border-radius: 999px;
+  color: #fff;
+  background: var(--gt-blue);
+  box-shadow: 0 7px 18px rgba(36, 119, 255, 0.26);
+  font: 800 12px/1 "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease;
+}
+.gt-header-quote:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(36, 119, 255, 0.33); }
+.gt-header-icon {
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 999px;
+  display: inline-grid;
+  place-items: center;
+  color: var(--gt-navy);
+  background: #f3ede3;
+  cursor: pointer;
+  flex: 0 0 42px;
+}
+.gt-header-icon .gt-inline-icon { font-size: 20px; }
+.gt-mobile-call .gt-inline-icon { color: var(--gt-green); }
+
+/* main spacing follows custom header instead of relying on Tailwind breakpoint assumptions */
+.gt-main { padding-top: var(--gt-header-h) !important; }
+
+/* =========================================================
+   MOBILE DRAWER
+========================================================= */
+.mobile-nav-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  visibility: hidden;
+  pointer-events: none;
+}
+.mobile-nav-overlay.is-open { visibility: visible; pointer-events: auto; }
+.mobile-nav-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(1, 13, 35, .52);
+  opacity: 0;
+  transition: opacity .24s ease;
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+}
+.mobile-nav-overlay.is-open .mobile-nav-backdrop { opacity: 1; }
+.mobile-nav-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: min(88vw, 390px);
+  height: 100%;
+  background: var(--gt-cream);
+  padding: 20px;
+  box-shadow: -18px 0 50px rgba(1,13,35,.18);
+  transform: translateX(102%);
+  transition: transform .28s cubic-bezier(.2,.7,.2,1);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.mobile-nav-overlay.is-open .mobile-nav-panel { transform: translateX(0); }
+.mobile-nav-head { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+.mobile-brand { display:flex; gap:10px; align-items:center; color:var(--gt-navy); text-decoration:none; min-width:0; }
+.mobile-brand img { width:44px; height:44px; object-fit:contain; flex:0 0 44px; }
+.mobile-brand span { display:flex; flex-direction:column; min-width:0; }
+.mobile-brand strong { font-family:Manrope,sans-serif; font-size:14px; line-height:1.1; }
+.mobile-brand small { margin-top:4px; font-family:'DM Sans',sans-serif; font-size:8px; letter-spacing:.08em; color:#60656c; }
+.mobile-nav-close { width:42px; height:42px; border:0; border-radius:999px; background:#f3ede3; color:var(--gt-navy); display:grid; place-items:center; cursor:pointer; flex:0 0 42px; }
+.mobile-nav-close .gt-inline-icon { font-size:20px; }
+.mobile-nav-links { display:flex; flex-direction:column; gap:7px; }
+.mobile-nav-links a { text-decoration:none; color:var(--gt-navy); border-radius:16px; padding:14px 16px; font:700 16px/1.25 Manrope,sans-serif; transition:.18s ease; }
+.mobile-nav-links a:hover,
+.mobile-nav-links a.is-active { background:#f3ede3; box-shadow:0 3px 12px rgba(22,35,58,.08); }
+.mobile-nav-cta { display:grid; grid-template-columns:1fr; gap:10px; margin-top:auto; }
+.mobile-call, .mobile-quote { min-height:50px; display:flex; align-items:center; justify-content:center; gap:9px; border-radius:999px; text-decoration:none; font:800 13px/1 'DM Sans',sans-serif; letter-spacing:.04em; }
+.mobile-call { color:var(--gt-navy); background:#f3ede3; }
+.mobile-call .gt-inline-icon { color:var(--gt-green); font-size:18px; }
+.mobile-quote { color:white; background:var(--gt-blue); box-shadow:0 8px 20px rgba(36,119,255,.28); text-transform:uppercase; }
+.mobile-quote .gt-inline-icon { font-size:17px; }
+.mobile-nav-address { font:500 12px/1.55 'DM Sans',sans-serif; color:#60656c; padding:14px 4px 4px; border-top:1px solid rgba(22,35,58,.1); }
+
+/* =========================================================
+   MOBILE ACTION BAR
+========================================================= */
+.gt-mobile-actionbar {
+  position: fixed;
+  z-index: 90;
+  left: 12px;
+  right: 12px;
+  bottom: max(12px, env(safe-area-inset-bottom));
+  display: flex;
+  gap: 8px;
+  padding: 7px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 999px;
+  background: rgba(22,35,58,.96);
+  box-shadow: 0 12px 34px rgba(1,13,35,.34);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+.gt-mobile-action {
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  font: 800 12px/1 'DM Sans', sans-serif;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.gt-mobile-action .gt-inline-icon { font-size: 17px; }
+.gt-mobile-action-call { color:#fff; background:rgba(255,255,255,.11); }
+.gt-mobile-action-call .gt-inline-icon { color:var(--gt-green); }
+.gt-mobile-action-quote { color:#fff; background:var(--gt-blue); box-shadow:0 5px 14px rgba(36,119,255,.35); }
+
+/* =========================================================
+   GLOBAL CONTENT SAFETY / FLUIDITY
+========================================================= */
+.gt-main h1,
+.gt-main h2,
+.gt-main h3,
+.gt-main p,
+.gt-main a,
+.gt-main span { overflow-wrap: break-word; }
+
+.gt-file-name {
+  margin-top: 8px;
+  font: 600 12px/1.4 'DM Sans', sans-serif;
+  color: var(--gt-navy);
+}
+.gt-demo-note {
+  margin-top: 12px;
+  border-radius: 14px;
+  padding: 12px 14px;
+  background: rgba(255,216,61,.25);
+  color: var(--gt-navy);
+  font: 600 12px/1.45 'DM Sans', sans-serif;
+}
+[data-image-error] { background:linear-gradient(135deg,#fff1b0,#d8e5ff); }
+.gt-footer-badges,
+.gt-footer-bottom-links { flex-wrap: wrap; }
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+@media (min-width:1180px) {
+  .gt-desktop-nav { display:flex; }
+  .gt-menu-toggle,
+  .gt-mobile-call { display:none; }
+  .gt-header-quote { display:inline-flex; }
+  .mobile-nav-overlay { display:none !important; }
+}
+@media (min-width:1320px) {
+  .gt-header-phone { display:flex; }
+}
+
+/* =========================================================
+   TABLET / SMALL LAPTOP
+========================================================= */
+@media (min-width:768px) and (max-width:1179px) {
+  .gt-header-inner { width:min(100% - 48px, 1120px); }
+  .gt-mobile-actionbar { display:none; }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+@media (max-width:767px) {
+  :root { --gt-header-h: 76px; }
+
+  .gt-header-inner {
+    width: calc(100% - 28px);
+    height: 72px;
+    gap: 10px;
+  }
+  .gt-brand { gap:8px; min-width:0; }
+  .gt-brand img { width:38px; height:38px; flex-basis:38px; }
+  .gt-brand-copy strong { font-size:14px; }
+  .gt-brand-copy small { font-size:7px; letter-spacing:.075em; }
+  .gt-header-actions { gap:6px; }
+  .gt-header-icon { width:40px; height:40px; flex-basis:40px; }
+  .gt-header-icon .gt-inline-icon { font-size:19px; }
+
+  /* Leave breathing room behind the fixed mobile CTA bar. */
+  footer { padding-bottom: 78px; }
+
+  /* More sensible mobile type scaling than desktop-generated utilities. */
+  .text-display { font-size: clamp(36px, 10.4vw, 46px) !important; line-height:1.04 !important; }
+  .text-display-mobile { font-size: clamp(34px, 9.5vw, 40px) !important; line-height:1.08 !important; }
+  .text-headline-xl { font-size: clamp(29px, 8vw, 34px) !important; line-height:1.16 !important; }
+  .text-headline-lg { font-size: 25px !important; line-height:1.24 !important; }
+  .text-headline-md { font-size: 20px !important; line-height:1.35 !important; }
+  .text-body-lg { font-size:16px !important; line-height:1.65 !important; }
+
+  /* Keep generous but not wasteful vertical rhythm. */
+  .py-space-3xl { padding-top:3.75rem !important; padding-bottom:3.75rem !important; }
+  .py-space-2xl { padding-top:3rem !important; padding-bottom:3rem !important; }
+  .pt-space-3xl { padding-top:3.75rem !important; }
+  .pb-space-3xl { padding-bottom:3.75rem !important; }
+  .mb-space-2xl { margin-bottom:2.5rem !important; }
+  .space-y-space-2xl > :not([hidden]) ~ :not([hidden]) { margin-top:2.5rem !important; }
+
+  /* Home hero proof row no longer squeezes the phone and B2B label. */
+  .gt-home-proof-row { flex-wrap:wrap; gap:12px !important; }
+  .gt-home-proof-row > .h-8.w-px { display:none; }
+
+  /* Home hero floating cards are contained inside the image on narrow screens. */
+  .gt-float-printing { top:10px !important; left:10px !important; padding:7px 10px !important; }
+  .gt-float-bulk { top:50px !important; right:10px !important; padding:7px 10px !important; max-width:72%; }
+  .gt-float-engineered { left:10px !important; bottom:10px !important; padding:8px 11px !important; max-width:72%; }
+  .gt-float-workshop { width:92px !important; height:92px !important; right:8px !important; bottom:8px !important; }
+  .gt-float-printing span,
+  .gt-float-bulk span,
+  .gt-float-engineered span { font-size:10px !important; line-height:1.25 !important; }
+
+  /* Trust cards can wrap instead of forcing horizontal overflow. */
+  .gt-trust-grid > div { min-width:0; padding:.7rem .75rem !important; }
+  .gt-trust-grid .whitespace-nowrap { white-space:normal !important; line-height:1.2; }
+
+  /* About page hero overlap stays inside the viewport. */
+  .gt-about-floating-badge {
+    left:8px !important;
+    bottom:-10px !important;
+    padding:11px 12px !important;
+    max-width:calc(100% - 16px);
+  }
+
+  /* Manufacturing configurator: no four tiny columns on a phone. */
+  .gt-customizer-shell { border-radius:26px !important; padding:14px !important; }
+  .gt-preview-meta { flex-wrap:wrap; gap:8px; justify-content:flex-start !important; }
+  .gt-size-grid { grid-template-columns:repeat(2,minmax(0,1fr)) !important; }
+  .gt-size-grid .size-pill {
+    min-height:48px;
+    padding:.65rem .5rem !important;
+    font-size:12px !important;
+    line-height:1.2 !important;
+    letter-spacing:.035em !important;
+  }
+  .gt-base-grid { grid-template-columns:1fr !important; }
+  .gt-base-grid > * { text-align:left !important; padding:.75rem .9rem !important; font-size:12px !important; line-height:1.35 !important; }
+  .gt-customizer-cta { min-height:50px; padding:.8rem 1rem !important; font-size:12px !important; line-height:1.3 !important; text-align:center; }
+  .gt-bulk-fields { grid-template-columns:1fr !important; }
+  .gt-manufacturing-badge { top:10px !important; right:10px !important; width:76px !important; height:76px !important; padding:8px !important; }
+
+  /* Contact form title and uploader do not get squeezed. */
+  .gt-form-heading { align-items:flex-start !important; gap:12px; }
+  .gt-form-heading > div:first-child { min-width:0; }
+  .gt-file-drop { padding:14px !important; }
+
+  /* Mobile footer details remain readable. */
+  .gt-footer-bottom-links { justify-content:center; gap:10px 14px !important; }
+}
+
+@media (max-width:479px) {
+  .gt-brand-copy small { display:none; }
+  .gt-brand-copy strong { font-size:13px; }
+  .gt-header-inner { width:calc(100% - 22px); }
+  .gt-header-actions { gap:5px; }
+  .gt-header-icon { width:38px; height:38px; flex-basis:38px; }
+
+  .mobile-nav-panel { width:min(92vw, 360px); padding:16px; }
+  .mobile-brand small { font-size:7px; }
+
+  .gt-mobile-actionbar { left:10px; right:10px; padding:6px; gap:6px; }
+  .gt-mobile-action { min-height:44px; padding:0 10px; font-size:11px; }
+
+  /* Two-column micro grids stay legible on very narrow phones. */
+  .gt-trust-grid { grid-template-columns:1fr !important; }
+  .gt-trust-grid > div { width:100%; }
+
+  /* Remove the least important overlapping hero element at 360px-ish widths. */
+  .gt-float-workshop { display:none !important; }
+  .gt-float-bulk { max-width:78%; }
+
+  /* Keep map cards and long CTA copy from touching the viewport edges. */
+  .gt-main [class*="left-4"][class*="right-4"] { max-width:calc(100% - 32px); }
+}
+
+@media (max-width:359px) {
+  .gt-brand-copy { display:none; }
+  .gt-mobile-action { font-size:10px; }
+  .gt-size-grid { grid-template-columns:1fr !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior:auto !important;
+    transition-duration:.001ms !important;
+    animation-duration:.001ms !important;
+    animation-iteration-count:1 !important;
+  }
+}
+
+/* Wide engineering tables stay readable and intentionally scroll on small screens. */
+.gt-spec-table-wrap { -webkit-overflow-scrolling: touch; scrollbar-width: thin; }
+.gt-spec-table-wrap table { min-width: 860px; }
+@media (max-width:767px) {
+  .gt-workshop-proof-row { flex-wrap:wrap; gap:8px 14px !important; }
+  .gt-spec-table-wrap { margin-left:-4px; margin-right:-4px; border-radius:18px !important; }
+  .gt-spec-table-wrap::after {
+    content:"Swipe sideways to compare specifications";
+    position:sticky;
+    left:0;
+    display:block;
+    width:max-content;
+    padding:8px 12px;
+    color:#626770;
+    background:#fff9ef;
+    font:700 10px/1.2 "DM Sans",sans-serif;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+  }
+}
